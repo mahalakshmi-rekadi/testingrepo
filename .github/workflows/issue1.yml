@@ -9,6 +9,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Fix permissions
+        run: |
+         sudo chown -R $USER:$(id -gn Mahalakshmis-Laptop) /Users/runner
       - name: Use python
         run: |
           python --version
