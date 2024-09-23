@@ -8,17 +8,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11.9'
-      - name: Fix permissions
-        run: |
-         sudo chown -R $USER:$(id -gn Mahalakshmis-Laptop) /Users/runner
+          python-version: '3.11.3'
       - name: Use python
         run: |
           python --version
-
-
-
-
-
-
-
