@@ -7,32 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
+        
       - uses: pnpm/action-setup@v4
         with:
           version: 6.14.5  # Specify the pnpm version here
       - name: setup node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'pnpm'
       - name: install dependencies
         run: pnpm install --frozen-lockfile
-      - name: setup npmrc file to configure pnpm
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            @mycompany:registry=https://npm.pkg.github.com
-            //npm.pkg.github.com/:_authToken=$NPM_PUBLISH_TOKEN
-            //registry.npmjs.org/:_authToken=null
-          EOF
-      - name: create and publish versions
-        uses: changesets/action@v1
-        with:
-          cwd: ${{ github.workspace }}
-          version: pnpm run version
-          commit: "chore: update package versions"
-          title: "Release (Private Packages)"
-          publish: pnpm run publish:ci
-       
+      
