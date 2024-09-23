@@ -1,21 +1,11 @@
 name: Release (Private Packages)
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - ".changeset/**"
-      - ".github/workflows/packages-release.yml"
   workflow_dispatch:
-env:
-  CI: true
-  PNPM_CACHE_FOLDER: .pnpm-store
+
 jobs:
   version_or_release:
     name: 'Version and open PR (or) release private packages'
-    timeout-minutes: 15
     runs-on: ubuntu-latest
-    environment: 'Production - Private Packages'
     steps:
       - name: checkout code repository
         uses: actions/checkout@v3
