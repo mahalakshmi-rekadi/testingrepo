@@ -17,6 +17,12 @@ jobs:
         with:
           node-version: 18
           cache: 'pnpm'
+      - name: verify pnpm-lock.yaml presence
+        run: |
+          if [ ! -f pnpm-lock.yaml ]; then
+            echo "Error: pnpm-lock.yaml not found!"
+            exit 1
+          fi
       - name: install dependencies
         run: pnpm install --frozen-lockfile
       
