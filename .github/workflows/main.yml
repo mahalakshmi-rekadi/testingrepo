@@ -9,5 +9,4 @@ jobs:
         uses: actions/checkout@v4
       - name: Set up Node.js
         uses: mahalakshmi-rekadi/setup-python-test@main
-      - name: Install dependencies
-        run: pip install -r ${{ github.action_path }}/requirements.txt
+     
