@@ -10,5 +10,7 @@ jobs:
      
       - name: Set up Node.js
         uses: mahalakshmi-rekadi/setup-python-test@main
+        with:
+          path: .github/workflows/actions/composite-actions
      
      
